@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <section class="left-column">
+      <form class="add-form">
+        <input
+          type="text"
+          placeholder="Назва товару"
+          aria-label="Назва товару"
+        />
+
+        <button type="submit" data-tooltip="Додати товар">
+          Додати
+        </button>
+      </form>
+
+      <div class="item bought">
+        <div class="item-name">Помідори</div>
+
+        <div class="count">2</div>
+
+        <div class="actions">
+          <button class="status-btn" data-tooltip="Позначити як не куплено">
+            Не куплено
+          </button>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-name">Печиво</div>
+
+        <div class="controls">
+          <button class="circle-btn minus" data-tooltip="Зменшити кількість">
+            −
+          </button>
+
+          <div class="count">2</div>
+
+          <button class="circle-btn plus" data-tooltip="Збільшити кількість">
+            +
+          </button>
+        </div>
+
+        <div class="actions">
+          <button class="status-btn" data-tooltip="Позначити як куплено">
+            Куплено
+          </button>
+
+          <button class="delete-btn" data-tooltip="Видалити товар">
+            ×
+          </button>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-name">Сир</div>
+
+        <div class="controls">
+          <button class="circle-btn minus" disabled data-tooltip="Не можна зменшити">
+            −
+          </button>
+
+          <div class="count">1</div>
+
+          <button class="circle-btn plus" data-tooltip="Збільшити кількість">
+            +
+          </button>
+        </div>
+
+        <div class="actions">
+          <button class="status-btn" data-tooltip="Позначити як куплено">
+            Куплено
+          </button>
+
+          <button class="delete-btn" data-tooltip="Видалити товар">
+            ×
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="right-column">
+      <div class="section-title">Залишилося</div>
+      <div class="summary-list remaining-summary"></div>
+
+      <div class="section-title">Куплено</div>
+      <div class="summary-list bought-summary"></div>
+    </aside>
+  </div>
+
+  <div class="author-badge">
+    <div class="badge-top">BuyList</div>
+    <div class="badge-bottom">Робота Іваненко Крістіни</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
