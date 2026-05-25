@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validator</title>
+</head>
+<body>
+    <input type="text" id="password">
+    <button onclick="validate()">Validate</button>
+    <div id="result"></div>
+
+    <script>
+        function validate() {
+            const password = document.getElementById('password').value;
+            const result = validatePassword(password);
+            document.getElementById('result').innerText = JSON.stringify(result, null, 2);
+        }
+    </script>
+    <script src="validator.js"></script>
+</body>
+</html>
