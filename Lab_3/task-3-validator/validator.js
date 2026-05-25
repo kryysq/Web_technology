@@ -102,7 +102,3 @@ console.log(validatePassword("MyPass 1!"));
 //
 console.log(validatePassword(""));
 // { valid: false, errors: ["Довжина < 8", "Немає великих літер", ...] }
-
-module.exports = {
-  validatePassword,
-};
