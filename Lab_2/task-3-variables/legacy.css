@@ -1,0 +1,304 @@
+
+/*
+  legacy.css — стилі лендингу з hardcoded значеннями.
+  Завдання 3: рефакторинг через CSS-змінні + темна тема.
+
+  Студент має:
+  1. Виділити дизайн-токени в :root (≥ 10 змінних).
+  2. Замінити hardcoded значення на var(--name).
+  3. Додати [data-theme="dark"] перевизначення для темної теми.
+  4. Перевірити, що нічого не зламалось у світлій темі.
+*/
+
+:root {
+/* Кольори */
+  --color-primary: #2050a0;
+  --color-primary-dark: #173e7c;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f4f6f8;
+  --color-bg-footer: #1a1a1a;
+  --color-bg-alert: #fff7e6;
+  --color-bg-alert-info: #e8f0fe;
+  --color-bg-alert-success: #e6f7eb;
+  --color-text: #1a1a1a;
+  --color-text-light: #ffffff;
+  --color-text-muted: #555555;
+  --color-text-footer: #cccccc;
+  --color-link-hover: #ffcc44;
+  --color-alert: #b85c00;
+  --color-alert-info: #2050a0;
+  --color-alert-success: #2a8a4a;
+  --color-border: #e1e4e8;
+  --color-border-header: #1a3f80;
+
+/* Відступи */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+  --space-hero: 64px;
+
+/* Радіуси */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+/* Шрифти */
+  --font-main: 'Helvetica Neue', Arial, sans-serif;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 24px;
+  --font-size-hero: 36px;
+
+/* Додаткові розміри */
+--font-size-sm: 14px;
+--font-size-section: 28px;
+
+--space-input-y: 10px;
+--space-input-x: 12px;
+
+--container-sm: 480px;
+--container-md: 600px;
+--container-lg: 960px;
+
+--border-thick: 4px;
+}
+
+[data-theme="dark"] {
+  --color-primary: #ffcc44;
+  --color-primary-dark: #b89c2a;
+  --color-bg: #1a1a1a;
+  --color-bg-alt: #22242a;
+  --color-bg-footer: #22242a;
+  --color-bg-alert: #2a2a1a;
+  --color-bg-alert-info: #1a2a3a;
+  --color-bg-alert-success: #1a3a2a;
+  --color-text: #f4f6f8;
+  --color-text-light: #1a1a1a;
+  --color-text-muted: #cccccc;
+  --color-text-footer: #888888;
+  --color-link-hover: #2050a0;
+  --color-alert: #ffcc44;
+  --color-alert-info: #ffcc44;
+  --color-alert-success: #b8ff44;
+  --color-border: #444a55;
+  --color-border-header: #ffcc44;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* === Header === */
+.site-header {
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  padding: var(--space-md) var(--space-xl);
+  border-bottom: 1px solid var(--color-border-header);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  color: var(--color-text-light);
+}
+
+.site-header nav a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  margin-left: var(--space-md);
+  font-size: var(--font-size-base);
+}
+/* колір посилання при наведенні */
+.site-header nav a:hover {
+  color: var(--color-link-hover);
+}
+
+/* === Hero === */
+.hero {
+  background: var(--color-bg-alt);
+  padding: var(--space-hero) var(--space-xl);
+  text-align: center;
+  color: var(--color-text);
+}
+
+.hero h2 {
+  font-size: var(--font-size-hero);
+  margin: 0 0 var(--space-md);
+  color: var(--color-primary);
+}
+
+.hero p {
+  font-size: var(--font-size-lg);
+  max-width: var(--container-md);
+  margin: 0 auto var(--space-xl);
+  color: var(--color-text-muted);
+}
+/* перетворення посилання в кнопку */
+.hero .cta {
+  display: inline-block;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+}
+
+.hero .cta:hover {
+  background: var(--color-primary-dark);
+}
+
+/* === Features === */
+.features {
+  padding: var(--space-xxl) var(--space-xl);
+  background: var(--color-bg);
+}
+
+.features h2 {
+  text-align: center;
+  font-size: var(--font-size-section);
+  margin: 0 0 var(--space-xl);
+  color: var(--color-primary);
+}
+/*вмикаємо грід*/
+.features .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg); /*відстань*/
+  max-width: var(--container-lg);
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  color: var(--color-text);
+}
+
+.feature-card h3 {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* === Alert === */
+.alert {
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg-alert);
+  color: var(--color-alert);
+  border-left: var(--border-thick) solid var(--color-alert);
+  border-radius: var(--radius-sm);
+  margin: var(--space-md) 0;
+  font-size: var(--font-size-sm);
+}
+
+.alert-info {
+  background: var(--color-bg-alert-info);
+  color: var(--color-alert-info);
+  border-left-color: var(--color-alert-info);
+}
+
+.alert-success {
+  background: var(--color-bg-alert-success);
+  color: var(--color-alert-success);
+  border-left-color: var(--color-alert-success);
+}
+
+/* === Form === */
+.contact-form {
+  max-width: var(--container-sm);
+  margin: var(--space-xxl) auto;
+  padding: var(--space-xl);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-lg);
+}
+
+.contact-form h2 {
+  margin: 0 0 var(--space-lg);
+  color: var(--color-primary);
+  font-size: var(--font-size-xxl);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: var(--space-input-y) var(--space-input-x);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.contact-form button {
+  display: block;
+  margin: 0 auto;
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  padding: var(--space-md) var(--space-lg);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: var(--color-primary-dark);
+}
+
+/* === Footer === */
+.site-footer {
+  background: var(--color-bg-footer);
+  color: var(--color-text-footer);
+  padding: var(--space-xl);
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+.site-footer a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  margin: 0 var(--space-sm);
+}
+
+.site-footer a:hover {
+  color: var(--color-link-hover);
+}
